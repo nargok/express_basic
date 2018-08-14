@@ -8,6 +8,13 @@ app.use(express.static('public'));
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
+var data = {
+  'Taro': 'taro@example,com',
+  'Hanako': 'hanako@example,com',
+  'Sachiko': 'sachiko89@example,com',
+  'Ichiro': 'ichiro110@example,com',
+}
+
 app.get('/', (req, res) => {
   var msg = 'This is Express page!<br>' + 
             '※メッセージを書いて送信してください';
@@ -15,7 +22,7 @@ app.get('/', (req, res) => {
   res.render('index.ejs', {
     title: 'Index',
     content: msg,
-    link:{href: url, text:'※別のページに移動'}
+    data: data,
   });
 });
 
